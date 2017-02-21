@@ -1,0 +1,5 @@
+/*
+Added per UI Bootstrap doc
+*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
