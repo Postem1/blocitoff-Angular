@@ -8,7 +8,8 @@
         $stateProvider
             .state('landing', {
                 url: '/',
-                templateUrl: 'templates/landing.html'
+                templateUrl: 'templates/landing.html',
+                controller: "MainCtrl as main"
             });
     }
     
