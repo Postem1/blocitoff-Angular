@@ -1,4 +1,9 @@
-<h1>Landing Page</h1>
-
-
-{{ main.tasks }}
+<div id="container">
+    <h1>To-do List</h1>
+    <ul>
+        <li ng-repeat="task in main.tasks" ng-show="!task.expired && !task.completed"><span> <i class="fa fa-trash"></i> </span>{{task.name}}</li>
+    </ul>
+    <input type="text" placeholder="Add New Task" ng-model="main.newTask">
+    <button class="btn btn-success" ng-click="main.addTask()">Submit</button>
+    
+</div>
