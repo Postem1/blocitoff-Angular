@@ -26,6 +26,7 @@ li {
     background: #fff;
     height: 40px;
     line-height: 40px;
+    color: black;
 }
 
 li:nth-child(2n){
@@ -41,29 +42,45 @@ span{
     width: 0;
     display: inline-block;
     transition: 0.3s linear;
+    opacity: 0;
+    cursor: pointer;
 }
 
 li:hover span{
     width: 40px;
+    opacity: 1.0;
+}
+
+.trash{
+    float: right;
+    margin-right: 0;
 }
 
 input{
     font-size: 18px;
     background-color: #f7f7f7;
-    width: 100%;
+    width: 84.3%;
     padding: 13px 13px 13px 20px;
+    border: 3px solid rgba(0,0,0,0);
 }
 
 input:focus{
     background: #fff;
     border: 3px solid #2980B9;
     outline: none;
-    border: 3px solid rgba(0,0,0,0.3);
 }
 
-#container{
+#app-container{
     width: 460px;
     margin: 100px auto;
-    border: 2px solid lightgray;
     background: #F7F7F7;
 }
+
+.submit-button{
+    display: inline-block;
+    line-height: 40px;
+    height: 100%;
+    float: right;
+}
+
+

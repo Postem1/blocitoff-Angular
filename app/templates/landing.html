@@ -1,9 +1,12 @@
-<div id="container">
+<div id="app-container">
     <h1>To-do List</h1>
     <ul>
-        <li ng-repeat="task in main.tasks" ng-show="!task.expired && !task.completed"><span> <i class="fa fa-trash"></i> </span>{{task.name}}</li>
+        <li ng-repeat="task in main.tasks" ng-show="!task.expired && !task.completed">
+            <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
+            <span class="trash"><i class="fa fa-trash"></i></span>
+            {{task.name}}
+        </li>
     </ul>
     <input type="text" placeholder="Add New Task" ng-model="main.newTask">
-    <button class="btn btn-success" ng-click="main.addTask()">Submit</button>
-    
+    <button class="btn btn-success submit-button" ng-click="main.addTask()">Submit</button>
 </div>
