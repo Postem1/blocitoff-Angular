@@ -10,10 +10,15 @@
                 url: '/',
                 templateUrl: 'templates/landing.html',
                 controller: "MainCtrl as main"
+            })
+            .state('history', {
+                url: '/history',
+                templateUrl: 'templates/history.html',
+                controller: 'HistoryCtrl as history'
             });
     }
     
     angular
-        .module('blocitoff', ['ngAnimate', 'ui.bootstrap', 'ui.router', 'firebase'])
+        .module('blocitoff', ['ngAnimate', 'ui.router', 'firebase'])
         .config(config)
 })();

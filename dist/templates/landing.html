@@ -1,12 +1,21 @@
-<div id="app-container">
-    <h1>To-do List</h1>
-    <ul>
-        <li ng-repeat="task in main.tasks" ng-show="!task.expired && !task.completed">
-            <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
-            <span class="trash"><i class="fa fa-trash"></i></span>
-            {{task.name}}
+<div class="container">
+     <ul class='nav nav-tabs'>
+        <li class="active">
+            <a ui-sref='landing'>Active Tasks</a>
         </li>
+        <li>
+            <a ui-sref='history'>Historical Tasks</a>
+        </li>
+       
     </ul>
-    <input type="text" placeholder="Add New Task" ng-model="main.newTask">
-    <button class="btn btn-success submit-button" ng-click="main.addTask()">Submit</button>
-</div>
+        <h1>To-do List</h1>
+        <ul>
+            <li ng-repeat="task in main.tasks" ng-show="!task.expired && !task.completed">
+                <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
+                <span class="trash"><i class="fa fa-trash"></i></span>
+                {{task.name}}
+            </li>
+        </ul>
+        <input type="text" placeholder="Add New Task" ng-model="main.newTask">
+        <button class="btn btn-success submit-button" ng-click="main.addTask()">Submit</button>
+    </div>

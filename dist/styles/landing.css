@@ -1,7 +1,4 @@
-/*
-Added per UI Bootstrap doc
-*/
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 *{
     box-sizing: border-box;
 }
@@ -59,7 +56,7 @@ li:hover span{
 input{
     font-size: 18px;
     background-color: #f7f7f7;
-    width: 84.3%;
+    width: 82.9%;
     padding: 13px 13px 13px 20px;
     border: 3px solid rgba(0,0,0,0);
 }
@@ -81,6 +78,10 @@ input:focus{
     line-height: 40px;
     height: 100%;
     float: right;
+}
+ul.nav.nav-tabs {
+    margin-bottom: 10px;
+    font-size: 11px;
 }
 
 
