@@ -11,7 +11,7 @@
     <div class="panel-group">
         <div class="panel panel-default" ng-repeat="task in history.tasks" ng-show="!task.active || task.completed">
             <div class="panel-heading">{{task.name}}</div>
-            <div class="panel-body">Task Priority: {{task.priority}}</div>
+            <div class="panel-body">Task Priority: {{task.priority | uppercase}}</div>
             <div class="panel-body">Task Completed: {{task.completed}}</div>
             <div class="panel-body">Task Active: {{task.active}}</div>
         </div>

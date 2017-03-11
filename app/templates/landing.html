@@ -26,13 +26,15 @@
             <button type="submit" ng-disabled="taskInput.$invalid" class="btn btn-success submit-button" ng-click="main.addTask()">Submit</button>
         </div>
     </form>
+    
     <hr>
+    
     <h2>Tasks</h2>
     <ul>
         <li ng-repeat="task in main.tasks" ng-show="!task.completed && task.active">
             <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
-            <span class="trash"><i class="fa fa-trash"></i></span>
-                {{task.name}}  -  Priority:  {{task.priority}}
+            <span class="trash" ng-click="main.removeTask(task)"><i class="fa fa-trash"></i></span>
+                Task: {{task.name}}  -  Priority:  {{task.priority | uppercase}}
         </li>
     </ul>
 </div>

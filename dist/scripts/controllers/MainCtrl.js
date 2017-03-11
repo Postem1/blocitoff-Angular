@@ -12,7 +12,7 @@
                 self.tasks.forEach(function(task){
                     var currentTime = new Date();
                     var sevenDays = 604800000;
-                    if (currentTime.getTime() - task.createdAt >= 604800000){
+                    if (currentTime.getTime() - task.createdAt >= sevenDays){
                         task.active = false;
                     }
                     self.tasks.$save(task);
@@ -31,12 +31,17 @@
             this.tasks.$add(taskObj);
             this.newTask = "";
             this.priorityLevel = "";
-        }
+        };
         
         //marking task as complete
         this.completeTask = function(task){
             task.completed = true;
             this.tasks.$save(task);
+        };
+        
+        //remove task from database
+        this.removeTask = function(task){
+            this.tasks.$remove(task);
         };
     }
 
