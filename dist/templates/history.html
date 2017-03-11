@@ -1,19 +1,19 @@
 <div class="container">
-  <ul class='nav nav-tabs'>
+    <ul class='nav nav-tabs'>
        <li>
             <a ui-sref='landing'>Active Tasks</a>
         </li>
         <li class="active">
             <a ui-sref='history'>Historical Tasks</a>
         </li>
-        
     </ul>
-  <h1>Expired and Completed Tasks</h1>
-  <div class="panel-group">
-    <div class="panel panel-default" ng-repeat="task in history.tasks" ng-show="task.expired || task.completed">
-        <div class="panel-heading">{{task.name}}</div>
-        <div class="panel-body">Task Completed? {{task.completed}}</div>
-        <div class="panel-body">Task Expired? {{task.expired}}</div>
+    <h1>Expired and Completed Tasks</h1>
+    <div class="panel-group">
+        <div class="panel panel-default" ng-repeat="task in history.tasks" ng-show="!task.active || task.completed">
+            <div class="panel-heading">{{task.name}}</div>
+            <div class="panel-body">Task Priority: {{task.priority}}</div>
+            <div class="panel-body">Task Completed: {{task.completed}}</div>
+            <div class="panel-body">Task Active: {{task.active}}</div>
+        </div>
     </div>
-  </div>
 </div>

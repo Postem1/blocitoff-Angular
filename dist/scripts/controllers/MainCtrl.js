@@ -13,7 +13,7 @@
                     var currentTime = new Date();
                     var sevenDays = 604800000;
                     if (currentTime.getTime() - task.createdAt >= 604800000){
-                        task.expired = true;
+                        task.active = false;
                     }
                     self.tasks.$save(task);
                 }) 
@@ -24,11 +24,13 @@
             var taskObj = 
                 {   name: this.newTask,
                     completed: false,
-                    expired: false,
+                    active: true,
+                    priority: this.priorityLevel,
                     createdAt: firebase.database.ServerValue.TIMESTAMP
                 };
             this.tasks.$add(taskObj);
             this.newTask = "";
+            this.priorityLevel = "";
         }
         
         //marking task as complete

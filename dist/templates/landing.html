@@ -5,17 +5,34 @@
         </li>
         <li>
             <a ui-sref='history'>Historical Tasks</a>
-        </li>
-       
+        </li> 
     </ul>
-        <h1>To-do List</h1>
-        <ul>
-            <li ng-repeat="task in main.tasks" ng-show="!task.expired && !task.completed">
-                <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
-                <span class="trash"><i class="fa fa-trash"></i></span>
-                {{task.name}}
-            </li>
-        </ul>
-        <input type="text" placeholder="Add New Task" ng-model="main.newTask">
-        <button class="btn btn-success submit-button" ng-click="main.addTask()">Submit</button>
-    </div>
+    
+    <h1>To-do List</h1>
+    
+    <form name="taskInput">
+        <div class="form-group">
+            <input type="text" placeholder="Enter Description" ng-model="main.newTask" ng-minlength="2" ng-maxlength="50">
+        </div>
+      <div class="form-group">
+            <label for="priority-sel">Enter a priority level</label>
+            <select ng-model="main.priorityLevel" class="form-control" id="priority-sel" required> 
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select> 
+        </div>
+        <div class="form-group">
+            <button type="submit" ng-disabled="taskInput.$invalid" class="btn btn-success submit-button" ng-click="main.addTask()">Submit</button>
+        </div>
+    </form>
+    <hr>
+    <h2>Tasks</h2>
+    <ul>
+        <li ng-repeat="task in main.tasks" ng-show="!task.completed && task.active">
+            <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
+            <span class="trash"><i class="fa fa-trash"></i></span>
+                {{task.name}}  -  Priority:  {{task.priority}}
+        </li>
+    </ul>
+</div>

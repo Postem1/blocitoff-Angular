@@ -43,6 +43,12 @@ span{
     cursor: pointer;
 }
 
+.container{
+    width: 500px;
+    margin: 100px auto;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 li:hover span{
     width: 40px;
     opacity: 1.0;
@@ -56,7 +62,6 @@ li:hover span{
 input{
     font-size: 18px;
     background-color: #f7f7f7;
-    width: 82.9%;
     padding: 13px 13px 13px 20px;
     border: 3px solid rgba(0,0,0,0);
 }
@@ -67,21 +72,16 @@ input:focus{
     outline: none;
 }
 
-#app-container{
-    width: 460px;
-    margin: 100px auto;
-    background: #F7F7F7;
-}
 
-.submit-button{
-    display: inline-block;
-    line-height: 40px;
-    height: 100%;
-    float: right;
-}
 ul.nav.nav-tabs {
     margin-bottom: 10px;
     font-size: 11px;
 }
+
+div.form-group{
+    width: 50%;
+    margin-top: 10px;
+}
+
 
 
