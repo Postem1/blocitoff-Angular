@@ -31,9 +31,9 @@
     
     <h2>Tasks</h2>
     <ul>
-        <li ng-repeat="task in main.tasks" ng-show="!task.completed && task.active">
-            <span ng-click="main.completeTask(task)"><i class="fa fa-check"></i></span>
-            <span class="trash" ng-click="main.removeTask(task)"><i class="fa fa-trash"></i></span>
+        <li ng-repeat="task in main.taskManager.tasks" ng-show="!task.completed && task.active">
+            <span ng-click="main.taskManager.completeTask(task)"><i class="fa fa-check"></i></span>
+            <span class="trash" ng-click="main.taskManager.removeTask(task)"><i class="fa fa-trash"></i></span>
                 Task: {{task.name}}  -  Priority:  {{task.priority | uppercase}}
         </li>
     </ul>

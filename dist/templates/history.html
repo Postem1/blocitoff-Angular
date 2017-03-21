@@ -9,7 +9,7 @@
     </ul>
     <h1>Expired and Completed Tasks</h1>
     <div class="panel-group">
-        <div class="panel panel-default" ng-repeat="task in history.tasks" ng-show="!task.active || task.completed">
+        <div class="panel panel-default" ng-repeat="task in history.taskManager.tasks" ng-show="!task.active || task.completed">
             <div class="panel-heading">{{task.name}}</div>
             <div class="panel-body">Task Priority: {{task.priority | uppercase}}</div>
             <div class="panel-body">Task Completed: {{task.completed}}</div>

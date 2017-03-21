@@ -1,10 +1,8 @@
 (function(){
-    function HistoryCtrl($firebaseArray){
-        var tasksRef = firebase.database().ref().child("tasks");
-        this.tasks = $firebaseArray(tasksRef);
-        
+    function HistoryCtrl(TaskManager){
+        this.taskManager = TaskManager;
     }
     
     angular.module('blocitoff')
-        .controller('HistoryCtrl', ['$firebaseArray', HistoryCtrl])
+        .controller('HistoryCtrl', ['TaskManager', HistoryCtrl])
 })();

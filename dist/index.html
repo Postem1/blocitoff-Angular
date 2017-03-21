@@ -14,7 +14,7 @@
     <body>
         <ui-view></ui-view>        
         <!-- Angular, Animate, Bootstrap and ui router -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
@@ -32,7 +32,9 @@
           firebase.initializeApp(config);
         </script>
         <script src="/scripts/app.js"></script>
+        <script src="/scripts/services/TaskManager.js"></script>
         <script src="/scripts/controllers/MainCtrl.js"></script>
         <script src="/scripts/controllers/HistoryCtrl.js"></script>
+        
     </body>
 </html>

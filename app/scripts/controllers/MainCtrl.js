@@ -1,50 +1,22 @@
 (function() {
-    function MainCtrl($firebaseArray) {
-        var tasksRef = firebase.database().ref().child("tasks");
-        this.tasks = $firebaseArray(tasksRef);
+    function MainCtrl(TaskManager) {
+        this.taskManager = TaskManager;
         
-        //used to maintain "this" context in async
-        var self = this
-        
-        //expiration logic
-        this.tasks.$loaded()
-            .then(function() {
-                self.tasks.forEach(function(task) {
-                    var currentTime = new Date();
-                    var sevenDays = 604800000;
-                    if (currentTime.getTime() - task.createdAt >= sevenDays) {
-                        task.active = false;
-                    }
-                    self.tasks.$save(task);
-                }) 
-            });
-        
-        //adds task from ng-model
-        this.addTask = function() {
-            var taskObj = 
-                {   name: this.newTask,
-                    completed: false,
-                    active: true,
-                    priority: this.priorityLevel,
-                    createdAt: firebase.database.ServerValue.TIMESTAMP
-                };
-            this.tasks.$add(taskObj);
-            this.newTask = "";
-            this.priorityLevel = "";
-        };
+        this.addTask = function(){
+            TaskManager.addTask(this.newTask, this.priorityLevel);
+        }
         
         //marking task as complete
         this.completeTask = function(task) {
-            task.completed = true;
-            this.tasks.$save(task);
+            TaskManager.completeTask(task)
         };
         
         //remove task from database
         this.removeTask = function(task) {
-            this.tasks.$remove(task);
+            TaskManager.removeTask(task);
         };
     }
-
+    
     angular.module('blocitoff')
-        .controller('MainCtrl', ['$firebaseArray', MainCtrl]);
+        .controller('MainCtrl', ['TaskManager', MainCtrl]);
 })();
