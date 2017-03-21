@@ -1,4 +1,4 @@
-(function(){
+(function() {
     function MainCtrl($firebaseArray) {
         var tasksRef = firebase.database().ref().child("tasks");
         this.tasks = $firebaseArray(tasksRef);
@@ -8,11 +8,11 @@
         
         //expiration logic
         this.tasks.$loaded()
-            .then(function(){
-                self.tasks.forEach(function(task){
+            .then(function() {
+                self.tasks.forEach(function(task) {
                     var currentTime = new Date();
                     var sevenDays = 604800000;
-                    if (currentTime.getTime() - task.createdAt >= sevenDays){
+                    if (currentTime.getTime() - task.createdAt >= sevenDays) {
                         task.active = false;
                     }
                     self.tasks.$save(task);
@@ -20,7 +20,7 @@
             });
         
         //adds task from ng-model
-        this.addTask = function(){
+        this.addTask = function() {
             var taskObj = 
                 {   name: this.newTask,
                     completed: false,
@@ -34,13 +34,13 @@
         };
         
         //marking task as complete
-        this.completeTask = function(task){
+        this.completeTask = function(task) {
             task.completed = true;
             this.tasks.$save(task);
         };
         
         //remove task from database
-        this.removeTask = function(task){
+        this.removeTask = function(task) {
             this.tasks.$remove(task);
         };
     }
