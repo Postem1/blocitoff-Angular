@@ -19,6 +19,7 @@
         
         var TaskManager = {};
         
+        //referencing database
         TaskManager.tasks = tasks;
         
         //adds task from ng-model
